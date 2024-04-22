@@ -11,7 +11,19 @@ class Project_model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    
+    function select_project()
+    {
+        $this->db->order_by('project.id','DESC');
+        $this->db->select("project.*,staff_tbl.staff_name");
+        $this->db->from("project");
+        $this->db->join("staff_tbl",'staff_tbl.id=project.staff_name');
+        $qry=$this->db->get();
+        if($qry->num_rows()>0)
+        {
+            $result=$qry->result_array();
+            return $result;
+        }
+    }
     
     function delete_project($id)
     {
@@ -30,35 +42,9 @@ class Project_model extends CI_Model {
 
     
 
-    function select_project()
-    {
-        $this->db->order_by('project.id','DESC');
-        $this->db->select("project.*,staff_tbl.staff_name");
-        $this->db->from("project");
-        $this->db->join("staff_tbl",'staff_tbl.id=project.staff_id');
-        $qry=$this->db->get();      
-        if($qry->num_rows()>0)
-        {
-            $result=$qry->result_array();
-            return $result;
-        }
-    }
-
-    function select_project_byID($id)
-    {
-        $this->db->where('project.id',$id);
-        $this->db->select("project.*,staff_tbl.staff_name");
-        $this->db->from("project");
-        $this->db->join("staff_tbl",'staff_tbl.id=project.staff_id');
-        $qry=$this->db->get();
-        if($qry->num_rows()>0)
-        {
-            $result=$qry->result_array();
-            return $result;
-        }
-    }
     
-
+   
+    
 
     
 

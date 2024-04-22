@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,36 +28,40 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="#"><b>Employee</b> Management</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Please Login To Continue..</p>
 
+<body>
+<header>
+    <img src="uploads/profile-pic/logod.png" alt="" class="logo">
+		
+	</header>
+   
+  
     <?php echo form_open('Home/login'); ?>
-      <div class="form-group has-feedback">
-        <input type="text" name="txtusername" class="form-control" placeholder="Username/Staff Email">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" name="txtpassword" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
+      <div class="loginbox">
+    <img src="uploads/profile-pic/avatar.png" class="avatar">
+        <h1>Login Here</h1>
+        
+        
+      <p>Username</p>
+      <input type="text" name="txtusername" class="form-control" placeholder="Enter your username" required="required">
+        
+      <p>Password</p>
+      <input type="password" name="txtpassword" class="form-control" placeholder="Enter Password">
+      <i class="fa-solid fa-lock"></i>      
+    
       <?php echo $this->session->flashdata('login_error'); ?>
-      <div class="row">
+      
         <!-- /.col -->
-        <div class="col-xs-4 pull-left">
-          <button type="submit" class="btn btn-success btn-block btn-flat">Sign In</button>
-        </div>
+
+        <input type="submit" name="login-submit" value="Login">
+           
+        
+      
         <!-- /.col -->
       </div>
-    </form>
-  </div>
+  
+
   <!-- /.login-box-body -->
-</div>
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
@@ -74,6 +79,148 @@
     });
   });
 </script>
+
+<style>
+
+
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+
+
+
+body{
+	margin: 0;
+	 padding: 0;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+
+header{
+	background: white;
+	height: 60px;
+  width: 100%;
+}
+header .logo{
+
+	height: 200px;
+  width: 200px;
+	float: left;
+bottom: 300px;
+padding: 0;
+margin: 0;
+  
+
+}
+
+header h1{
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-weight: 400;
+	font-size: 32px;
+	margin-left: 100px;
+	top:50px;
+  color: red;
+
+  
+  
+}
+
+
+
+.loginbox{
+    width: 320px;
+    height: 400px;
+    background: #fff;
+    color: #fff;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.loginbox h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+    color:red;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color:#000;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+.loginbox :-ms-input-placeholder{
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border:red;
+    border-bottom: 2px solid #000;
+    color: #000;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+    width: 250px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    width:250px;
+
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+</style>
 </body>
 </html>
 

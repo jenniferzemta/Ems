@@ -38,7 +38,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>EM</b>S</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Employee</b> M S</span>
+      <span class="logo-lg"><b>MANAGEMENT</b> </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -90,15 +90,8 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
+      
+      
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -132,6 +125,32 @@
             <li><a href="<?php echo base_url(); ?>manage-staff"><i class="fa fa-circle-o"></i> Manage Staff</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-tasks"></i> <span>Presence</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        <ul class="treeview-menu">
+            <li><a href="<?php echo base_url(); ?>add-attendance"><i class="fa fa-circle-o"></i> Add Attendance</a></li>
+            <li><a href="<?php echo base_url(); ?>manage-attendance"><i class="fa fa-circle-o"></i> Manage Attendance</a></li>
+          </ul>
+        </li>
+      
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-tasks"></i> <span>Project</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        <ul class="treeview-menu">
+            <li><a href="<?php echo base_url(); ?>add-project"><i class="fa fa-circle-o"></i> Add Project</a></li>
+            <li><a href="<?php echo base_url(); ?>manage-project"><i class="fa fa-circle-o"></i> Manage Project</a></li>
+          </ul>
+        </li>
+      
 
         <li class="treeview">
           <a href="#">

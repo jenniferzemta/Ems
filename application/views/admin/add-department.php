@@ -16,7 +16,36 @@
     <section class="content">
       <div class="row">
 
-        <?php if($this->session->flashdata('success')): ?>
+        
+
+        <!-- column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Department</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="<?php echo base_url() ?>insert-department" method="POST">
+              <div class="box-body">
+               
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Department Name</label>
+                    <input type="text" name="txtdepartment" class="form-control" required="required" placeholder="Department Name">
+                  </div>
+                </div>
+                
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <button type="submit" class="btn btn-success pull-right">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <?php if($this->session->flashdata('success')): ?>
           <div class="col-md-12">
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -33,33 +62,6 @@
             </div>
           </div>
         <?php endif;?>
-
-        <!-- column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Add Department</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" action="<?php echo base_url(); ?>insert-department" method="POST">
-              <div class="box-body">
-               
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Department Name</label>
-                    <input type="text" name="txtdepartment" class="form-control" placeholder="Department Name">
-                  </div>
-                </div>
-                
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-success pull-right">Submit</button>
-              </div>
-            </form>
-          </div>
           <!-- /.box -->
         </div>
         <!--/.col (left) -->

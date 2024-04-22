@@ -1,14 +1,15 @@
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Project
+        Presence
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Project Management</a></li>
-        <li class="active">Add project</li>
+        <li><a href="#">Attendance Management</a></li>
+        <li class="active">Add Attendance</li>
       </ol>
     </section>
 
@@ -16,8 +17,7 @@
     <section class="content">
       <div class="row">
 
-      
-      
+
         <?php if($this->session->flashdata('success')): ?>
           <div class="col-md-12">
             <div class="alert alert-success alert-dismissible">
@@ -34,30 +34,24 @@
                   <?php echo $this->session->flashdata('error'); ?>
             </div>
           </div>
-        <?php endif;?>
+        <?php endif ?>
 
         <!-- column -->
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Add project</h3>
+              <h3 class="box-title">Add Attendance</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo base_url(); ?>insert-project" method="POST">
+            <?php echo form_open_multipart('Attendance/insert');?>
               <div class="box-body">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Name Project</label>
-                    <input type="text" name="txtname" class="form-control" placeholder=" Name project">
-                  </div>
-                </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Staff</label>
-                    <select class="form-control" name="slcstaff">
+                    <select class="form-control" required="required"name="slcstaff">
                       <option value="">Select</option>
                       <?php
                       if(isset($staff))
@@ -72,38 +66,35 @@
                   </div>
                 </div>
 
-    
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Date_deb</label>
-                    <input type="date" name="txtdob" class="form-control" placeholder="Start">
+                    <label>Date of day</label>
+                    <input type="date" name="txtdod" class="form-control" required="required"placeholder="DOB">
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Date_fin</label>
-                    <input type="date" name="txtdof" class="form-control" placeholder="End">
-                  </div>
-                </div>
-                
-              
-               
-                <div class="col-md-6">
+                    <label>Sign in time</label>
+                      <input type="time" name="txtsit" class="form-control" required="required" placeholder="Time (HH:MM)">  </div>
+                        </div>
+
+                        <div class="col-md-6">
                   <div class="form-group">
-                    <label>Statut</label>
-                    <select class="form-control" name="slcstatut">
-                      <option value="">Select</option>
-                      <option value="Encour">Initie</option>
-                      <option value="">En cours</option>
-                      <option value="Others">termine</option>
-                      <option value="Others">bloque</option>
-                      <option value="Others">abandonne</option>
-                    </select>
-                  </div>
-                </div>
+                    <label>Sign out time</label>
+                      <input type="time" name="txtsot" class="form-control" required="required"placeholder="Time (HH:MM)">  </div>
+                        </div>
+        
+
+
+               
                 
-            
+
+
+                
+                
+
+                
                 
               </div>
               <!-- /.box-body -->

@@ -12,17 +12,17 @@ class Project extends CI_Controller {
         }
     }
 
-    
+
     public function index()
     {
         $data['staff']=$this->Staff_model->select_staff();
-
         $this->load->view('admin/header');
         $this->load->view('admin/add-project',$data);
         $this->load->view('admin/footer');
     }
 
-    public function manage()
+
+    public function manage_project()
     {
         $data['content']=$this->Project_model->select_project();
         $this->load->view('admin/header');
@@ -31,69 +31,40 @@ class Project extends CI_Controller {
     }
     
 
-    
-    
-
     public function insert()
     {
-        $this->load->helper('form');
-        $this->form_validation->set_rules('txtname', 'Name Project', 'required');
+        
+        
         $this->form_validation->set_rules('slcstaff', 'Staff', 'required');
+        $this->form_validation->set_rules('txtname', 'Name Project', 'required');
         $this->form_validation->set_rules('txtdob', 'Date_deb', 'required');
-        $this->form_validation->set_rules('txtdob', 'Date_fin', 'required');
+        $this->form_validation->set_rules('txtdof', 'Date_fin', 'required');
         $this->form_validation->set_rules('slcstatut', 'Statut', 'required');
 
-        
-        $id=$this->input->post('txtid');
-        $name=$this->input->post('txtname');
+        $pname=$this->input->post('txtname');
         $staff=$this->input->post('slcstaff');
-        $dob=$this->input->post('txtdob');
-        $dob=$this->input->post('txtdob');
+        $dd=$this->input->post('txtdob');
+        $sd=$this->input->post('txtdof');
+        
         $statut=$this->input->post('slcstatut');
        
-        $data=$this->Project_model->insert_project(array('project_id'=>$id,'staff_name'=>$staff,'pname'=>$name,'duedate'=>$dob,'subdate'=>$dob,'statut'=>$statut
-    ));
+        
+       
+        $data=$this->Project_model->insert_project(array('staff_name'=>$staff,'pname'=>$pname,'duedate'=>$dd,'subdate'=>$sd,'status'=>$statut));
         if($data==true)
         {
-            $this->session->set_flashdata('success', "New Project Added Succesfully"); 
+            $this->session->set_flashdata('success', "New Project added Succesfully"); 
         }else{
             $this->session->set_flashdata('error', "Sorry, New Project Failed.");
         }
         redirect($_SERVER['HTTP_REFERER']);
     }
-    
 
 
     
-    public function update()
-    {
-        $id=$this->input->post('txtid');
-        $department=$this->input->post('txtdepartment');
-        $data=$this->Department_model->update_department(array('department_name'=>$department),$id);
-        if($this->db->affected_rows() > 0)
-        {
-            $this->session->set_flashdata('success', "Project Updated Succesfully"); 
-        }else{
-            $this->session->set_flashdata('error', "Sorry, project Update Failed.");
-        }
-        redirect(base_url()."department/manage_project");
-    }
-
-
-    function edit($id)
-    {
-        $data['content']=$this->Project_model->select_project_byID($id);
-        $this->load->view('admin/header');
-        $this->load->view('admin/edit-project',$data);
-        $this->load->view('admin/footer');
-    }
-
-
-    
-
-
     function delete($id)
     {
+        $this->Home_model->delete_login_byID($id);
         $data=$this->Project_model->delete_project($id);
         if($this->db->affected_rows() > 0)
         {
@@ -105,12 +76,5 @@ class Project extends CI_Controller {
     }
 
 
-
-}
-
-
-    
-
-
-        
+}  
     

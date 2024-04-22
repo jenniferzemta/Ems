@@ -333,7 +333,7 @@ CREATE TABLE `leave_tbl` (
 INSERT INTO `leave_tbl` (`id`, `staff_id`, `leave_reason`, `description`, `status`, `leave_from`, `leave_to`, `updated_on`, `applied_on`) VALUES
 (1, 2, 'Sick', 'Not feeling well enough to join', 1, '2021-01-15', '2021-01-17', '0000-00-00', '2021-01-15'),
 (2, 5, 'Casual Leave', 'been working for full hours since last month, got to free my mind for few days', 1, '2021-05-28', '2021-05-29', '0000-00-00', '2021-05-27'),
-(3, 6, 'Day Off', 'Requesting for a day off as I need to join my pal\'s wedding!', 1, '2021-05-28', '2021-05-29', '0000-00-00', '2021-05-27'),
+(3, 6, 'Day Off', 'Requesting for a day off as I need to join my pal\s wedding!', 1, '2021-05-28', '2021-05-29', '0000-00-00', '2021-05-27'),
 (4, 3, 'Casual Leave', 'for vacation, rest, and family events', 2, '2021-05-30', '2021-06-06', '0000-00-00', '2021-05-27'),
 (5, 9, 'Quarantine', 'i need to quarantine myself for few weeks as i got some symptoms of covid-19', 1, '2021-05-28', '2021-06-11', '0000-00-00', '2021-05-27');
 
@@ -405,7 +405,7 @@ CREATE TABLE `staff_tbl` (
   `staff_name` varchar(150) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `mobile` bigint(20) NOT NULL,
+  `mobile` int(20) NOT NULL,
   `dob` date NOT NULL,
   `doj` date NOT NULL,
   `address` text,
@@ -437,10 +437,39 @@ INSERT INTO `staff_tbl` (`id`, `staff_name`, `gender`, `email`, `mobile`, `dob`,
 -- Indexes for dumped tables
 --
 
+
+CREATE TABLE `attendance` (
+  `id` int(14) NOT NULL,
+  `staff_name` varchar(64) DEFAULT NULL,
+  `atten_date` varchar(64) DEFAULT NULL,
+  `signin_time` time DEFAULT NULL,
+  `signout_time` time DEFAULT NULL,
+  `working_hour` varchar(64) DEFAULT NULL,
+  `place` varchar(255) NOT NULL,
+  `absence` varchar(128) DEFAULT NULL,
+  `overtime` varchar(128) DEFAULT NULL,
+  `earnleave` varchar(128) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `staff_name` int(11) DEFAULT NULL,
+  `pname` varchar(100) DEFAULT NULL,
+  `duedate` date DEFAULT NULL,
+  `subdate` date DEFAULT '0000-00-00',
+  `status` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for table `country_tbl`
 --
 ALTER TABLE `country_tbl`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -467,6 +496,8 @@ ALTER TABLE `login_tbl`
 ALTER TABLE `salary_tbl`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
 --
 -- Indexes for table `staff_tbl`
 --

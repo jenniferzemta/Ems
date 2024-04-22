@@ -71,6 +71,24 @@ $route['insert-staff'] = 'staff/insert';
 $route['delete-staff/(:num)'] = 'staff/delete/$1';
 $route['edit-staff/(:num)'] = 'staff/edit/$1';
 $route['update-staff'] = 'staff/update';
+//attendance
+$route['add-attendance'] = 'attendance';
+$route['manage-attendance'] = 'attendance/manage_attendance';
+$route['insert-attendance'] = 'attendance/insert';
+$route['delete-attendance/(:num)'] = 'attendance/delete/$1';
+$route['edit-attendance/(:num)'] = 'attendance/edit/$1';
+$route['update-attendance'] = 'attendance/update';
+
+//project
+$route['add-project'] = 'project';
+$route['manage-project'] = 'project/manage_project';
+$route['view-project'] = 'project/view';
+$route['insert-project'] = 'project/insert';
+$route['delete-project/(:num)'] = 'project/delete/$1';
+$route['edit-project/(:num)'] = 'project/edit/$1';
+$route['update-project'] = 'project/update';
+
+
 
 //salary routes
 $route['add-salary'] = 'salary';
